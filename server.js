@@ -1,4 +1,3 @@
-// server.js
 const express = require('express');
 const db = require('./config/connection');
 const routes = require('./routes');
@@ -8,6 +7,8 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Use routes
 app.use(routes);
 
 db.once('open', () => {
@@ -15,3 +16,4 @@ db.once('open', () => {
     console.log(`🌍 API server running on port ${PORT}!`);
   });
 });
+
